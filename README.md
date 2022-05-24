@@ -2,4 +2,4 @@
 
 Este projeto visa a criação de uma API http para efetuar operações matemáticas.
 
-- Adicionei uma mudança bem legal
+- Adicionei uma mudança muito legal
