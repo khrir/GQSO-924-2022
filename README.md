@@ -2,4 +2,4 @@
 
 Este projeto visa a criação de uma API http para efetuar operações matemáticas.
 
-- Alteração na primeira parte. - Maísa
+Corrigi - Maísa
