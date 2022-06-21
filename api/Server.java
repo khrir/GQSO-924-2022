@@ -14,11 +14,11 @@ public class Server{
         server.setExecutor(Executors.newSingleThreadExecutor());
 
         // Definindo as rotas
-        // server.createContext('/', new IndexHandler()); Endereço raiz a ser desenvolvido
-        // server.createContext('/soma', new SomaHandler());
-        // server.createContext('/sub', new SubHandler());
-        // server.createContext('/multi', new MultiHandler());
-        // server.createContext('/div', new DivHandler());
+        server.createContext("/", new IndexHandler()); // Endereço raiz a ser desenvolvido
+        // server.createContext("/soma", new SomaHandler());
+        // server.createContext("/sub", new SubHandler());
+        // server.createContext("/multi", new MultiHandler());
+        server.createContext("/div", new DivHandler());
 
         // Iniciando o servidor
         server.start();
