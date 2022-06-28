@@ -49,6 +49,7 @@ public class DivHandler implements HttpHandler{
 
         double quociente = (dDividendo / dDivisor);
 
+        // resposta
         return Double.toString(quociente).getBytes();
     }
 }
