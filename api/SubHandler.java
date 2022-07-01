@@ -5,20 +5,27 @@ import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
-public class DivHandler implements HttpHandler{
+public class SubHandler implements HttpHandler{
 
     // public static final String PATH = "/div";
 
     public void handle(HttpExchange conn) throws IOException {
-       
-        String[] partes = conn.getRequestURI().getPath().split("/");
+          
+        try {
+            String[] partes = conn.getRequestURI().getPath().split("/");
 
-        // partes { partes[0] = "", partes[1] = "div", partes[2] = "number_1", partes[3] = "number_2"    
-        String numero1 = partes[2];
-        String numero2 = partes[3];
+            if (partes.length > 4){
+                throw new IOException("Tem mais de dois parâmetros.");
+            }
+            else if (partes.length < 4){
+                throw new IOException("Tem menos de dois parâmetros.");
+            }
+
+            // partes { partes[0] = "", partes[1] = "div", partes[2] = "number_1", partes[3] = "number_2"    
+            String numero1 = partes[2];
+            String numero2 = partes[3];
 
         byte[] result = calculateSub(numero2, numero2);
-        try {
             conn.sendResponseHeaders(200, result.length);
 
             Headers headers = conn.getResponseHeaders();
@@ -26,7 +33,11 @@ public class DivHandler implements HttpHandler{
 
             try (OutputStream out = conn.getResponseBody()) {
                 out.write(result);
-            } catch (IOException ioe) {
+            } 
+            catch(NumberFormatException ex){
+                ex.printStackTrace();
+            }
+            catch (IOException ioe) {
                 ioe.printStackTrace();
             }
         } catch (Exception e) {
