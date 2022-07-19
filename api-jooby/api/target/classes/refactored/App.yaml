@@ -1,0 +1,38 @@
+openapi: 3.0.1
+info:
+  title: My App API
+  description: My App API description
+  version: "1.0"
+paths:
+  /:
+    get:
+      operationId: sayHi
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: string
+  /div/{dividendo}/{divisor}:
+    get:
+      operationId: calcDiv
+      parameters:
+      - name: dividendo
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: divisor
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: string
+
