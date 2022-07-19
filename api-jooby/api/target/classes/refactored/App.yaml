@@ -35,4 +35,67 @@ paths:
             application/json:
               schema:
                 type: string
+  /multi/{multiplicando}/{multiplicador}:
+    get:
+      operationId: calcMulti
+      parameters:
+      - name: multiplicando
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: multiplicador
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: string
+  /soma/{parcela1}/{parcela2}:
+    get:
+      operationId: calcSoma
+      parameters:
+      - name: parcela1
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: parcela2
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: string
+  /sub/{numero1}/{numero2}:
+    get:
+      operationId: calcSoma2
+      parameters:
+      - name: numero1
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: numero2
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: string
 
